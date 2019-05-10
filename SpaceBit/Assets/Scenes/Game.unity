@@ -173,8 +173,8 @@ MonoBehaviour:
   planet: {fileID: 4816072273047502000, guid: 34091b5c71fe146999117ffc93602983, type: 3}
   asteroid: {fileID: 6876724092596786010, guid: a668cf411d3be41ab8149f0aac385cbe,
     type: 3}
+  largeAsteroid: {fileID: 0}
   waveNum: 1
-  asteroidCount: 5
   waveCountdown: 5
 --- !u!1 &170076733
 GameObject:

@@ -8,6 +8,7 @@ public class WaveController : MonoBehaviour {
 
   public GameObject planet;
   public Transform asteroid;
+  public Transform largeAsteroid;
 
   public int waveNum;
   public float waveCountdown;
@@ -70,7 +71,7 @@ public class WaveController : MonoBehaviour {
     if(searchCountdown <= 0) {
       searchCountdown = 1f;
 
-      if(GameObject.FindGameObjectWithTag("SmallAsteroid") == null) { // && GameObject.FindGameObjectWithTag("LargeAsteroid") == null
+      if(GameObject.FindGameObjectWithTag("SmallAsteroid") == null && GameObject.FindGameObjectWithTag("LargeAsteroid") == null) {
         return false;
       }
     }
@@ -98,11 +99,10 @@ public class WaveController : MonoBehaviour {
 
   public void SpawnAstroid() {
 
-    Debug.Log("Spawning Enemy");
-
     // 0 = bottom of screen, 1 = top of screen
     int randDir = Mathf.RoundToInt(Random.Range(0f, 1f));
 
+    int largeChance = Mathf.RoundToInt(Random.Range(0f, 10f));
 
     if(randDir == 0) {
       float xRand = Random.Range (-0.25f, 1.25f);
@@ -110,7 +110,12 @@ public class WaveController : MonoBehaviour {
 
       Vector3 asteroidPos = Camera.main.ViewportToWorldPoint (new Vector3 (xRand, yRand, 0f));
 
-      Instantiate (asteroid, asteroidPos, Quaternion.identity);
+      if(largeChance == 1) {
+        Instantiate (largeAsteroid, asteroidPos, Quaternion.identity);
+
+      } else {
+        Instantiate (asteroid, asteroidPos, Quaternion.identity);
+      }
 
     } else if(randDir == 1) {
 
@@ -119,7 +124,12 @@ public class WaveController : MonoBehaviour {
 
       Vector3 asteroidPos = Camera.main.ViewportToWorldPoint (new Vector3 (xRand, yRand, 0f));
 
-      Instantiate (asteroid, asteroidPos, Quaternion.identity);
+      if(largeChance == 1) {
+        Instantiate (largeAsteroid, asteroidPos, Quaternion.identity);
+
+      } else {
+        Instantiate (asteroid, asteroidPos, Quaternion.identity);
+      }
     }
   }
 }

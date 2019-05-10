@@ -6,6 +6,7 @@ public class Planet : MonoBehaviour {
 
   private int health = 5;
   private int smallAsteroidDamage = 1;
+  private int largeAsteroidDamage = 5;
 
 
   void Update() {
@@ -21,6 +22,12 @@ public class Planet : MonoBehaviour {
 
     if(collision.gameObject.tag == "SmallAsteroid") {
       health = health - smallAsteroidDamage;
+
+      Destroy(collision.gameObject);
+    }
+
+    if(collision.gameObject.tag == "LargeAsteroid") {
+      health = health - largeAsteroidDamage;
 
       Destroy(collision.gameObject);
     }

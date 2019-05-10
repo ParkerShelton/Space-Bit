@@ -3,7 +3,10 @@ Procedurally generated planet saving, asteroid destroying game
 
 ## IDEAS
 
-
+  - add shield for planets health
+  - crystals to redo shields slowly
+  - coins to purchase things
+  - planet missiles
 
 
 ## NOTES
@@ -18,15 +21,17 @@ Procedurally generated planet saving, asteroid destroying game
 ## TASKS
 
 ### DONE:
+  - [X] Make asteroids have random speed
+  - [X] Create a wave system that gets adds more asteroids and increases their spawn rate each wave
+  - [X] Make asteroids have random rotation
 
 
 ### NOT DONE:
-  - [ ] Make asteroids have random rotation
-  - [ ] Create a wave system that gets adds more asteroids and increases their speed each wave
   - [ ] Show the planets health as a bar at the top
   - [ ] When you tap, have an explosion be created
   - [ ] Have the asteroids explode into pieces when you tap on it (Purely cosmetic, the pieces wont hurt the planet)
-  - [ ] Create a large asteroid that breaks up into multiple small asteroid when blown up
+  - [ ] Have large asteroids spawn in occasionally
+  - [ ] Make the large asteroid break up into multiple small asteroid when blown up
   - [ ] When the planets health reaches 0 have the planet explode
 
 ### UNDECIDED:

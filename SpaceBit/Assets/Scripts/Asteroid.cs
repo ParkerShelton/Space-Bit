@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour {
 
-  public Transform planet;
+  // public Transform planet;
+  public GameObject planet;
 
   private SpriteRenderer spriteR;
-  private float asteroidSpeed = 1.0f;
+  private Rigidbody rb;
+  private float asteroidSpeed;
+  private float asteroidTorque;
 
   void Start() {
     spriteR = gameObject.GetComponent<SpriteRenderer> ();
+    rb = gameObject.GetComponent<Rigidbody>();
     transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+
+    asteroidSpeed = Random.Range(5.0f, 10.0f);
+    asteroidTorque = Random.Range(0.0f, 5.0f);
+
+    rb.AddForce((planet.transform.position - gameObject.transform.position) * asteroidSpeed);
+    rb.AddTorque(new Vector3(0f, 0f, asteroidTorque));
 
     RandomSize();
   }
 
-  void Update() {
-    transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, (asteroidSpeed * Time.deltaTime));
-  }
 
   void RandomSize() {
     float randSize = Random.Range(0.8f, 1.5f);
@@ -30,13 +37,5 @@ public class Asteroid : MonoBehaviour {
     SphereCollider collider = transform.GetComponent<SphereCollider>();
 
     collider.radius = transform.localScale.x * 2;
-
-    // if(x > 0.3f) {
-    //   collider.radius = 0.3f;
-    // } else if (x < 0.2f) {
-    //   collider.radius = 0.2f;
-    // } else {
-    //   collider.radius = x;
-    // }
   }
 }
